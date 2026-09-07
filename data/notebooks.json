@@ -1,0 +1,65 @@
+{
+  "notebooks": [
+    {
+      "id": "1",
+      "title": "Quadratic Equations Review",
+      "course": "Algebra 1",
+      "notes": "Today we covered the quadratic formula and how to derive it by completing the square. The standard form ax² + bx + c = 0 leads to the solutions x = [-b ± √(b² - 4ac)] / 2a. We practiced several examples where the discriminant was positive, zero, and negative to see the different types of roots.\n\nI also worked through word problems involving projectile motion and area maximization. Remember to always check if the equation can be factored first before jumping straight to the formula. The graphing calculator was helpful for visualizing the parabolas and confirming the vertex and intercepts.\n\nTHis is my new notes"
+    },
+    {
+      "id": "2",
+      "title": "Photosynthesis Process",
+      "course": "Science 8",
+      "notes": "Photosynthesis is the process by which plants convert light energy into chemical energy stored in glucose. The overall equation is 6CO₂ + 6H₂O + light energy → C₆H₁₂O₆ + 6O₂. It occurs in two main stages: the light-dependent reactions in the thylakoid membranes and the Calvin cycle in the stroma of the chloroplast.\n\nWe discussed the role of chlorophyll in capturing sunlight and the importance of stomata for gas exchange. Factors that affect the rate include light intensity, carbon dioxide concentration, and temperature. Lab experiment tomorrow will measure oxygen production under different light conditions."
+    },
+    {
+      "id": "3",
+      "title": "Character Analysis - To Kill a Mockingbird",
+      "course": "ELA 2",
+      "notes": "Atticus Finch stands as a moral compass in the novel, demonstrating integrity and courage by defending Tom Robinson despite community pressure. His parenting style emphasizes empathy, as seen when he tells Scout to consider things from another person's point of view. The trial scenes reveal deep-seated racial prejudices in Maycomb.\n\nScout's coming-of-age journey is central. Her initial innocence gradually gives way to a more nuanced understanding of human nature. The symbolism of the mockingbird represents innocence destroyed by evil. Key quotes to remember include Atticus's speech about real courage and the final scene with Boo Radley."
+    },
+    {
+      "id": "4",
+      "title": "French Verb Conjugations - Present Tense",
+      "course": "French 2",
+      "notes": "Regular -er verbs follow a consistent pattern: drop the -er and add -e, -es, -e, -ons, -ez, -ent. Examples include parler (to speak) and aimer (to like). Irregular verbs like être, avoir, aller, and faire must be memorized separately as they do not follow standard rules.\n\nPractice sentences: Je parle français. Nous allons au cinéma. Ils font leurs devoirs. Remember that negation uses ne...pas around the verb, and question formation can use inversion or est-ce que. Next quiz will cover these conjugations plus common vocabulary for daily routines."
+    },
+    {
+      "id": "5",
+      "title": "Trigonometric Ratios",
+      "course": "Math 3",
+      "notes": "SOH-CAH-TOA remains the foundation for right triangle trigonometry. Sine is opposite over hypotenuse, cosine is adjacent over hypotenuse, and tangent is opposite over adjacent. We applied these ratios to solve for missing sides and angles in various triangles.\n\nThe unit circle introduction showed how these ratios extend beyond right triangles. Special angles of 30°, 45°, and 60° have exact values that should be memorized. Applications included finding heights of buildings and distances across rivers using angle of elevation and depression problems."
+    },
+    {
+      "id": "6",
+      "title": "German Cases Overview",
+      "course": "German 2",
+      "notes": "German has four cases: nominative, accusative, dative, and genitive. The nominative is used for the subject, accusative for the direct object, dative for the indirect object, and genitive to show possession. Articles and adjective endings change according to the case and gender of the noun.\n\nExamples: Der Mann (nominative) gibt dem Kind (dative) den Ball (accusative). Prepositions also govern specific cases—accusative for durch, für, gegen; dative for aus, bei, mit. Practice identifying the role of each noun in a sentence is essential for correct declension."
+    },
+    {
+      "id": "7",
+      "title": "Theme and Symbolism in Poetry",
+      "course": "ELA 3",
+      "notes": "We analyzed several poems focusing on how imagery and figurative language develop theme. In Frost's \"The Road Not Taken,\" the diverging paths symbolize life choices and their lasting impact. The speaker's reflection reveals both satisfaction and lingering doubt about the decision made.\n\nMetaphor, simile, personification, and alliteration were identified across multiple works. Theme often emerges from the interaction between the speaker's tone and the central images. For the upcoming essay, select one poem and track how a single symbol evolves from beginning to end to support the overall message."
+    },
+    {
+      "id": "8",
+      "title": "Cell Structure and Function",
+      "course": "Science 8",
+      "notes": "Eukaryotic cells contain membrane-bound organelles while prokaryotic cells do not. Key organelles include the nucleus (control center), mitochondria (energy production), ribosomes (protein synthesis), and the endoplasmic reticulum (transport). Plant cells uniquely possess a cell wall, chloroplasts, and a large central vacuole.\n\nThe plasma membrane is selectively permeable and follows the fluid mosaic model. Diffusion, osmosis, and active transport move materials in and out of the cell. Diagram labeling practice helped reinforce locations and functions. Quiz will include both structure identification and process explanations."
+    },
+    {
+      "id": "9",
+      "title": "Narrative Writing Techniques",
+      "course": "ELA 1",
+      "notes": "Effective narratives use a clear structure with exposition, rising action, climax, falling action, and resolution. Sensory details and showing rather than telling help immerse the reader. Dialogue should advance the plot or reveal character while remaining natural and properly punctuated.\n\nPoint of view choices—first person, third limited, or third omniscient—affect how much the reader knows. We practiced writing strong openings that hook the reader and endings that provide satisfying closure without being overly neat. Peer review focused on pacing and emotional impact of key scenes."
+    },
+    {
+      "id": "10",
+      "title": "Linear Equations and Inequalities",
+      "course": "Algebra 1",
+      "notes": "Solving linear equations involves isolating the variable using inverse operations while maintaining equality. Multi-step equations may require combining like terms and using the distributive property. Checking solutions by substitution confirms accuracy.\n\nInequalities follow similar steps but reverse the inequality symbol when multiplying or dividing by a negative number. Graphing solutions on a number line uses open or closed circles depending on whether the endpoint is included. Word problems often translate into equations or inequalities involving rates, mixtures, or consecutive integers."
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
