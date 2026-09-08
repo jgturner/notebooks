@@ -4,6 +4,7 @@ import { RouterLink } from 'vue-router';
 import SearchBar from '@/components/SearchBar.vue';
 import SearchFilters from '@/components/SearchFilters.vue';
 import NoteList from '@/components/NoteList.vue';
+import { supabase } from '@/lib/supabase';
 
 const state = reactive({
   isFilters: false,
@@ -44,14 +45,13 @@ const setSearch = (search) => {
 };
 
 onMounted(async () => {
-  try {
-    const response = await fetch('/api/notebooks');
-    const data = await response.json();
-    state.notebooks = data;
-    console.log(state.notebooks);
-  } catch (error) {
-    console.error('Error fetching books', error);
-  }
+  const { data, error } = await supabase
+    .from('notebooks')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  if (error) return console.error('Error fetching notebooks', error);
+  state.notebooks = data;
 });
 </script>
 

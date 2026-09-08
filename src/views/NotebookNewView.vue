@@ -3,6 +3,7 @@ import { reactive } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useToast } from 'vue-toastification';
 import BackButton from '@/components/BackButton.vue';
+import { supabase } from '@/lib/supabase';
 
 const route = useRoute();
 const router = useRouter();
@@ -21,28 +22,21 @@ const handleSubmit = async () => {
       course: state.course.trim(),
     };
 
-    try {
-      const response = await fetch(`/api/notebooks`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(newNotebook),
-      });
+    const { data, error } = await supabase
+      .from('notebooks')
+      .insert(newNotebook)
+      .select()
+      .single();
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Stats: ${response.status}`);
-      }
-
-      toast.success('Notebook Created Successfully');
-
-      router.push(`/notebooks/${data.id}`);
-    } catch (error) {
-      console.error('Error updating notebook', error);
+    if (error) {
+      console.error('Error creating notebook', error);
       toast.error('There was an error creating your notebook.');
+      return;
     }
+
+    toast.success('Notebook Created Successfully');
+
+    router.push(`/notebooks/${data.id}`);
   }
 };
 </script>

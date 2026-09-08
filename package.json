@@ -7,14 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "format": "prettier --write --experimental-cli src/",
-    "server": "json-server data/notebooks.json --port 5000"
+    "format": "prettier --write --experimental-cli src/"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "@supabase/supabase-js": "^2.116.0",
     "bootstrap": "^5.3.8",
-    "json-server": "^1.0.0-beta.15",
     "vue": "^3.5.40",
     "vue-router": "^5.3.1",
     "vue-toastification": "^2.0.0-rc.5"

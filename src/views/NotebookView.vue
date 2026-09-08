@@ -3,6 +3,7 @@ import { reactive, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useToast } from 'vue-toastification';
 import BackButton from '@/components/BackButton.vue';
+import { supabase } from '@/lib/supabase';
 
 const route = useRoute();
 const router = useRouter();
@@ -22,19 +23,12 @@ const handleSubmit = async () => {
     notes: state.notes.trim(),
   };
 
-  try {
-    const response = await fetch(`/api/notebooks/${notebookId}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(updatedNotebook),
-    });
+  const { error } = await supabase
+    .from('notebooks')
+    .update(updatedNotebook)
+    .eq('id', notebookId);
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! Stats: ${response.status}`);
-    }
-  } catch (error) {
+  if (error) {
     console.error('Error updating notebook', error);
   }
 };
@@ -42,35 +36,31 @@ const handleSubmit = async () => {
 const handleDeleteNotebook = async () => {
   const confirmDelete = confirm('Are you sure you want to delete this notebook?');
   if (confirmDelete) {
-    try {
-      const response = await fetch(`/api/notebooks/${notebookId}`, {
-        method: 'DELETE',
-      });
+    const { error } = await supabase.from('notebooks').delete().eq('id', notebookId);
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status ${response.status}`);
-      }
-
-      if (response.status !== 204) {
-        const data = await response.json();
-        console.log('Deleted Successfully:', data);
-        toast.error('Notebook Deleted Successfully');
-        router.push(`/`);
-      } else {
-        console.log('Deleted Successfully (No content returned)');
-        toast.error('Notebook Deleted Successfully');
-        router.push(`/`);
-      }
-    } catch (error) {
+    if (error) {
       console.error('Error deleting data:', error);
-      toast.error('There was an error deleting your notebook, please try again.');
+      toast.error('There was an error deleting your notebook, please try again');
+      return;
     }
+
+    toast.error('Notebook Deleted Successfully');
+    router.push('/');
   }
 };
 
 onMounted(async () => {
-  const response = await fetch(`/api/notebooks/${notebookId}`);
-  const data = await response.json();
+  const { data, error } = await supabase
+    .from('notebooks')
+    .select('*')
+    .eq('id', notebookId)
+    .single();
+
+  if (error) {
+    console.error('Error fetching notebook', error);
+    toast.error('Could not load that notebook.');
+    return;
+  }
 
   state.title = data.title;
   state.course = data.course;
