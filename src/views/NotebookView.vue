@@ -14,6 +14,7 @@ const state = reactive({
   title: '',
   course: '',
   notes: '',
+  isLoading: true,
 });
 
 const handleSubmit = async () => {
@@ -23,10 +24,7 @@ const handleSubmit = async () => {
     notes: state.notes.trim(),
   };
 
-  const { error } = await supabase
-    .from('notebooks')
-    .update(updatedNotebook)
-    .eq('id', notebookId);
+  const { error } = await supabase.from('notebooks').update(updatedNotebook).eq('id', notebookId);
 
   if (error) {
     console.error('Error updating notebook', error);
@@ -65,14 +63,21 @@ onMounted(async () => {
   state.title = data.title;
   state.course = data.course;
   state.notes = data.notes ?? '';
+  state.isLoading = false;
 });
 </script>
 
 <template>
-  <BackButton />
-  <h1>{{ state.title }}</h1>
-  <small class="mb-4 d-block">Changes are saved automatically</small>
-  <section>
+  <section v-if="state.isLoading">
+    <div class="d-flex align-items-center justify-content-center" style="height: 400px">
+      <img src="@/assetts/imgs/loading.gif" alt="loading..." width="50" />
+    </div>
+  </section>
+
+  <section v-else>
+    <BackButton />
+    <h1>{{ state.title }}</h1>
+    <small class="mb-4 d-block">Changes are saved automatically</small>
     <form @submit.prevent="handleSubmit">
       <div class="mb-3">
         <label for="note-title" class="form-label">Title:</label>

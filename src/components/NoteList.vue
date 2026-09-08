@@ -1,5 +1,4 @@
 <script setup>
-import { RouterLink } from 'vue-router';
 import NoteListing from './NoteListing.vue';
 
 defineProps({
@@ -10,7 +9,9 @@ defineProps({
 <template>
   <section>
     <h2 class="mb-3">My Notes</h2>
-    <NoteListing v-for="notebook in notebooks" :key="notebook.id" :notebook="notebook" />
+    <div class="row">
+      <NoteListing v-for="notebook in notebooks" :key="notebook.id" :notebook="notebook" />
+    </div>
   </section>
 </template>
 

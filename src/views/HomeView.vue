@@ -52,22 +52,34 @@ onMounted(async () => {
 
   if (error) return console.error('Error fetching notebooks', error);
   state.notebooks = data;
+  state.isLoading = false;
 });
 </script>
 
 <template>
-  <h1>Note Book</h1>
-  <hr />
-  <SearchBar :isFilters="state.isFilters" @toggle-filters="toggleFilters" @set-search="setSearch" />
-  <SearchFilters
-    :isFilters="state.isFilters"
-    :activeCourse="state.activeCourse"
-    @toggle-filters="toggleFilters"
-    @set-filter="setFilter"
-  />
+  <section v-if="state.isLoading">
+    <div class="d-flex align-items-center justify-content-center" style="height: 400px">
+      <img src="@/assetts/imgs/loading.gif" alt="loading..." width="50" />
+    </div>
+  </section>
+  <section v-else>
+    <h1>Note Book</h1>
+    <hr />
+    <SearchBar
+      :isFilters="state.isFilters"
+      @toggle-filters="toggleFilters"
+      @set-search="setSearch"
+    />
+    <SearchFilters
+      :isFilters="state.isFilters"
+      :activeCourse="state.activeCourse"
+      @toggle-filters="toggleFilters"
+      @set-filter="setFilter"
+    />
 
-  <RouterLink to="/notebooks/new" class="btn btn-primary mb-3">+ Notebook</RouterLink>
-  <NoteList :notebooks="filteredNotebooks" />
+    <RouterLink to="/notebooks/new" class="btn btn-primary mb-3">+ Notebook</RouterLink>
+    <NoteList :notebooks="filteredNotebooks" />
+  </section>
 </template>
 
 <style scoped></style>
