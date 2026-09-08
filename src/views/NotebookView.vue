@@ -71,7 +71,7 @@ onMounted(async () => {
 <template>
   <Loading v-if="state.isLoading" />
 
-  <section v-else class="bg-white shadow p-4">
+  <section v-else class="bg-white shadow p-4 full-height">
     <BackBreadCrumb />
     <h1>{{ state.title }}</h1>
     <small class="mb-4 d-block">Changes are saved automatically</small>
@@ -129,4 +129,9 @@ onMounted(async () => {
   </section>
 </template>
 
-<style scoped></style>
+<style scoped>
+.full-height {
+  height: 1000px;
+  overflow: hidden;
+}
+</style>
