@@ -1,9 +1,10 @@
 <script setup>
-import { reactive } from 'vue';
+import { reactive, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useToast } from 'vue-toastification';
-import BackButton from '@/components/BackButton.vue';
 import { supabase } from '@/lib/supabase';
+import BackButton from '@/components/BackButton.vue';
+import Loading from '@/components/Loading.vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -13,6 +14,7 @@ const state = reactive({
   title: '',
   course: 'Select a Course...',
   formButton: true,
+  isLoading: true,
 });
 
 const handleSubmit = async () => {
@@ -22,11 +24,7 @@ const handleSubmit = async () => {
       course: state.course.trim(),
     };
 
-    const { data, error } = await supabase
-      .from('notebooks')
-      .insert(newNotebook)
-      .select()
-      .single();
+    const { data, error } = await supabase.from('notebooks').insert(newNotebook).select().single();
 
     if (error) {
       console.error('Error creating notebook', error);
@@ -39,12 +37,17 @@ const handleSubmit = async () => {
     router.push(`/notebooks/${data.id}`);
   }
 };
+
+onMounted(() => {
+  state.isLoading = false;
+});
 </script>
 
 <template>
-  <BackButton />
-  <h1>Create New Notebook</h1>
-  <section>
+  <Loading v-if="state.isLoading" />
+  <section v-else class="bg-white shadow p-4">
+    <BackButton />
+    <h1>Create New Notebook</h1>
     <form @submit.prevent="handleSubmit">
       <div class="mb-3">
         <label for="note-title" class="form-label">Title:</label>
