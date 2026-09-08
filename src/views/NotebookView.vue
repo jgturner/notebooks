@@ -3,7 +3,7 @@ import { reactive, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useToast } from 'vue-toastification';
 import { supabase } from '@/lib/supabase';
-import BackButton from '@/components/BackButton.vue';
+import BackBreadCrumb from '@/components/BackBreadCrumb.vue';
 import Loading from '@/components/Loading.vue';
 
 const route = useRoute();
@@ -72,7 +72,7 @@ onMounted(async () => {
   <Loading v-if="state.isLoading" />
 
   <section v-else class="bg-white shadow p-4">
-    <BackButton />
+    <BackBreadCrumb />
     <h1>{{ state.title }}</h1>
     <small class="mb-4 d-block">Changes are saved automatically</small>
     <form @submit.prevent="handleSubmit">

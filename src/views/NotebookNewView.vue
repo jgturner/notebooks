@@ -3,10 +3,9 @@ import { reactive, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useToast } from 'vue-toastification';
 import { supabase } from '@/lib/supabase';
-import BackButton from '@/components/BackButton.vue';
+import BackBreadCrumb from '@/components/BackBreadCrumb.vue';
 import Loading from '@/components/Loading.vue';
 
-const route = useRoute();
 const router = useRouter();
 const toast = useToast();
 
@@ -45,8 +44,8 @@ onMounted(() => {
 
 <template>
   <Loading v-if="state.isLoading" />
-  <section v-else class="bg-white shadow p-4">
-    <BackButton />
+  <section v-else class="full-height bg-white shadow p-4">
+    <BackBreadCrumb />
     <h1>Create New Notebook</h1>
     <form @submit.prevent="handleSubmit">
       <div class="mb-3">
@@ -85,8 +84,8 @@ onMounted(() => {
 </template>
 
 <style scoped>
-textarea {
-  width: 100%;
-  min-height: 600px;
+.full-height {
+  height: 1000px;
+  overflow: hidden;
 }
 </style>
