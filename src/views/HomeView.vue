@@ -1,10 +1,11 @@
 <script setup>
 import { reactive, onMounted, computed } from 'vue';
 import { RouterLink } from 'vue-router';
+import { supabase } from '@/lib/supabase';
 import SearchBar from '@/components/SearchBar.vue';
 import SearchFilters from '@/components/SearchFilters.vue';
 import NoteList from '@/components/NoteList.vue';
-import { supabase } from '@/lib/supabase';
+import Loading from '@/components/Loading.vue';
 
 const state = reactive({
   isFilters: false,
@@ -57,12 +58,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <section v-if="state.isLoading">
-    <div class="d-flex align-items-center justify-content-center" style="height: 400px">
-      <img src="@/assetts/imgs/loading.gif" alt="loading..." width="50" />
-    </div>
-  </section>
-  <section v-else>
+  <Loading v-if="state.isLoading" />
+
+  <section v-else class="bg-white shadow p-4">
     <h1>Note Book</h1>
     <hr />
     <SearchBar

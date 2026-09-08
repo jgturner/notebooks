@@ -2,8 +2,9 @@
 import { reactive, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useToast } from 'vue-toastification';
-import BackButton from '@/components/BackButton.vue';
 import { supabase } from '@/lib/supabase';
+import BackButton from '@/components/BackButton.vue';
+import Loading from '@/components/Loading.vue';
 
 const route = useRoute();
 const router = useRouter();
@@ -68,13 +69,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <section v-if="state.isLoading">
-    <div class="d-flex align-items-center justify-content-center" style="height: 400px">
-      <img src="@/assetts/imgs/loading.gif" alt="loading..." width="50" />
-    </div>
-  </section>
+  <Loading v-if="state.isLoading" />
 
-  <section v-else>
+  <section v-else class="bg-white shadow p-4">
     <BackButton />
     <h1>{{ state.title }}</h1>
     <small class="mb-4 d-block">Changes are saved automatically</small>

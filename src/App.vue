@@ -3,15 +3,9 @@ import { RouterView } from 'vue-router';
 </script>
 
 <template>
-  <section>
+  <div class="container">
     <RouterView />
-  </section>
+  </div>
 </template>
 
-<style scoped>
-section {
-  padding: 30px;
-  margin: 0 auto;
-  max-width: 960px;
-}
-</style>
+<style scoped></style>
