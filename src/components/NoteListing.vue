@@ -10,7 +10,7 @@ const props = defineProps({
     <RouterLink :to="`/notebooks/${notebook.id}`">
       <div class="notebook-card bg-light p-3 rounded h-100 shadow-sm">
         <div class="mb-3">
-          <p class="font-weight-bold">
+          <p class="fw-bold">
             {{ notebook.title }}
           </p>
         </div>
