@@ -83,9 +83,4 @@ onMounted(() => {
   </section>
 </template>
 
-<style scoped>
-.full-height {
-  height: 1000px;
-  overflow: hidden;
-}
-</style>
+<style scoped></style>
