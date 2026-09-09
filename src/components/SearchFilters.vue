@@ -41,7 +41,7 @@ const clearFilters = () => {
       <div class="d-flex justify-content-between align-items-center">
         <h2 class="mb-4">Search Filters</h2>
 
-        <span @click="toggleFilters">x</span>
+        <span @click="toggleFilters"><i class="fa-solid fa-xmark"></i></span>
       </div>
       <ul class="list-unstyled mb-5">
         <li
