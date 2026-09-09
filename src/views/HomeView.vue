@@ -13,6 +13,7 @@ const state = reactive({
   searchText: '',
   notebooks: [],
   isLoading: true,
+  message: "You have no notes...probably should write some stuff down so you don't forget =)",
 });
 
 const filteredNotebooks = computed(() => {
@@ -27,6 +28,12 @@ const filteredNotebooks = computed(() => {
     results = state.notebooks.filter((notebook) => {
       return notebook.title.toLowerCase().includes(query);
     });
+  }
+
+  if (results.length === 0) {
+    state.message = 'No Notes Found Matching Your Search...';
+  } else {
+    state.message = `You have no notes...probably should write some stuff down so you don't forget =)`;
   }
 
   return results;
@@ -76,7 +83,7 @@ onMounted(async () => {
     />
 
     <RouterLink to="/notebooks/new" class="btn btn-primary mb-3">+ Notebook</RouterLink>
-    <NoteList :notebooks="filteredNotebooks" />
+    <NoteList :notebooks="filteredNotebooks" :message="state.message" />
   </section>
 </template>
 
