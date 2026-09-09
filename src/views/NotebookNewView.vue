@@ -46,7 +46,7 @@ onMounted(() => {
   <Loading v-if="state.isLoading" />
   <section v-else class="full-height bg-white shadow p-4">
     <BackBreadCrumb />
-    <h1>Create New Notebook</h1>
+    <h1 class="coming-soon-regular">Create New Notebook</h1>
     <form @submit.prevent="handleSubmit">
       <div class="mb-3">
         <label for="note-title" class="form-label">Title:</label>
@@ -55,14 +55,14 @@ onMounted(() => {
           type="text"
           name="note-title"
           placeholder="Note required Title"
-          class="form-control"
+          class="form-control coming-soon-regular"
           aria-describedby="titleHelp"
         />
         <div id="titleHelp" class="form-text">Tile your notebook for easy search.</div>
       </div>
       <div class="mb-3">
         <label for="note-course" class="form-label" aria-describedby="titleHelp">Course:</label>
-        <select v-model="state.course" class="form-control">
+        <select v-model="state.course" class="form-control coming-soon-regular">
           <option>Select a Course...</option>
           <option>Math 3</option>
           <option>Science 8</option>
