@@ -22,7 +22,7 @@ const handleSearch = () => {
 <template>
   <section class="d-flex justify-content-between align-items-end mb-5">
     <div class="w-100">
-      <label for="search" class="form-label h4">Search:</label>
+      <label for="search" class="form-label h4 lacquer-regular">Search:</label>
       <input
         v-model="search"
         @input="handleSearch"

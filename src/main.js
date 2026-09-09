@@ -1,10 +1,12 @@
 import { createApp } from 'vue';
 import router from './router';
 import App from './App.vue';
+import VueToastification from 'vue-toastification';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import VueToastification from 'vue-toastification';
+import '@/assetts/css/main.css';
+
 import 'vue-toastification/dist/index.css';
 
 const app = createApp(App);

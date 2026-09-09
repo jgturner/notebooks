@@ -1,0 +1,25 @@
+.lacquer-regular {
+  font-family: 'Lacquer', system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.full-height {
+  min-height: 1000px;
+}
+
+.coming-soon-regular {
+  font-family: 'Coming Soon', cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.btn {
+  font-family: 'Coming Soon', cursive;
+  font-weight: 400;
+  font-style: normal;
+}

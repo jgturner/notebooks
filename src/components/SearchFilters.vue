@@ -39,7 +39,7 @@ const clearFilters = () => {
   <Transition name="filters-menu">
     <section class="filters-container bg-light shadow" v-if="isFilters">
       <div class="d-flex justify-content-between align-items-center">
-        <h2 class="mb-4">Search Filters</h2>
+        <h2 class="mb-4 lacquer-regular">Search Filters</h2>
 
         <span @click="toggleFilters"><i class="fa-solid fa-xmark"></i></span>
       </div>

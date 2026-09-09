@@ -10,13 +10,13 @@ const props = defineProps({
     <RouterLink :to="`/notebooks/${notebook.id}`">
       <div class="notebook-card bg-light p-3 rounded h-100 shadow-sm">
         <div class="mb-3">
-          <p class="fw-bold">
+          <p class="fw-bold coming-soon-regular">
             {{ notebook.title }}
           </p>
         </div>
         <div class="badge text-bg-warning mb-3">{{ notebook.course }}</div>
         <div>
-          <p class="custom-truncate">{{ notebook.notes }}</p>
+          <p class="custom-truncate coming-soon-regular">{{ notebook.notes }}</p>
         </div>
       </div>
     </RouterLink>

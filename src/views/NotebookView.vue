@@ -73,7 +73,7 @@ onMounted(async () => {
 
   <section v-else class="bg-white shadow p-4 full-height">
     <BackBreadCrumb />
-    <h1>{{ state.title }}</h1>
+    <h1 class="lacquer-regular">{{ state.title }}</h1>
     <small class="mb-4 d-block">Changes are saved automatically</small>
     <form @submit.prevent="handleSubmit">
       <div class="mb-3">
@@ -84,7 +84,7 @@ onMounted(async () => {
           type="text"
           name="note-title"
           placeholder="Note Title"
-          class="form-control"
+          class="form-control coming-soon-regular"
           aria-describedby="titleHelp"
         />
         <div id="titleHelp" class="form-text">Tile your notebook for easy search</div>
@@ -95,7 +95,7 @@ onMounted(async () => {
           name="note-course"
           v-model="state.course"
           @change="handleSubmit"
-          class="form-control"
+          class="form-control coming-soon-regular"
           aria-describedby="courseHelp"
         >
           <option>Math 3</option>
@@ -117,7 +117,7 @@ onMounted(async () => {
           @change="handleSubmit"
           name="note-content"
           id="note-content"
-          class="form-control"
+          class="form-control coming-soon-regular"
           aria-describedby="contentHelp"
           style="min-height: 500px"
         ></textarea>

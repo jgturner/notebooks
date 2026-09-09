@@ -61,7 +61,7 @@ onMounted(async () => {
   <Loading v-if="state.isLoading" />
 
   <section v-else class="bg-white shadow p-4 full-height">
-    <h1>Notebook</h1>
+    <h1 class="lacquer-regular">Notebook</h1>
     <hr />
     <SearchBar
       :isFilters="state.isFilters"
@@ -80,8 +80,4 @@ onMounted(async () => {
   </section>
 </template>
 
-<style scoped>
-.full-height {
-  min-height: 1000px;
-}
-</style>
+<style scoped></style>
