@@ -29,7 +29,7 @@ const handleSearch = () => {
         type="text"
         name="search"
         placeholder="Search your notes by title..."
-        class="form-control w-75"
+        class="form-control w-75 coming-soon-regular"
       />
     </div>
 
