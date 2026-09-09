@@ -46,7 +46,7 @@ onMounted(() => {
   <Loading v-if="state.isLoading" />
   <section v-else class="full-height bg-white shadow p-4">
     <BackBreadCrumb />
-    <h1 class="coming-soon-regular">Create New Notebook</h1>
+    <h1 class="lacquer-regular">Create New Notebook</h1>
     <form @submit.prevent="handleSubmit">
       <div class="mb-3">
         <label for="note-title" class="form-label">Title:</label>
